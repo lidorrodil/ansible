@@ -1,4 +1,5 @@
 ansible_user: admin
-ansible_password: admin
+ansible_password: adminadmin
 ansible_connection: winrm
+ansible_port: 5986
 ansible_winrm_server_cert_validation: ignore

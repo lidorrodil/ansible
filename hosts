@@ -14,11 +14,12 @@
 ## blue.example.com
 ## 192.168.100.1
 ## 192.168.100.10
-[ubuntu]
-10.0.2.15
+#[ubuntu]
+#10.0.2.15
 
-[windows]
-192.168.56.1
+#[windows]
+#192.168.56.1
+#10.0.2.15
 
 # Ex 2: A collection of hosts belonging to the 'webservers' group
 
