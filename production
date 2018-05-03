@@ -1,0 +1,6 @@
+[windows]
+192.168.56.1
+
+
+[ansible_windows_slaves:children]
+windows

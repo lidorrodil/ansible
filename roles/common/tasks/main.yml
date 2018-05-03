@@ -1,0 +1,19 @@
+- name: Debug OS
+  debug:
+    msg: "os: {{ ansible_os_family }}"
+
+- name: Create microservice folder in Windows
+  win_file:
+    path: C:\microservice
+    state: directory
+
+- name: Copy microservice on Windows
+  win_copy:
+    src: "{{ item }}"
+    dest: C:\\microservice\\
+  with_items:
+    - /etc/ansible/roles/common/files/microservice.py
+    - /etc/ansible/roles/common/files/counter.dat
+    
+- name: Run microservice
+  win_command: python c:\\microservice\\microservice.py
