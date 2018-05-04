@@ -1,0 +1,15 @@
+---
+#- name: Download Python 2.7
+#  win_get_url:
+#    dest: C:\Users\admin\Downloads
+#    url: http://www.python.org/ftp/python/2.7/python-2.7.msi
+
+#- name: Install Python
+#  win_package:
+#    path: C:\Users\admin\Downloads\python-2.7.msi
+
+- name: Present Env path for Python
+  win_path:
+    name: path
+    elements: C:\Python27
+    
