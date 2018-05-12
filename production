@@ -1,8 +1,13 @@
 [windows]
 #192.168.56.1
 #10.0.2.15
-10.0.0.21
+#10.0.0.21
+
+[linux]
+10.0.0.7 #ansible_python_interpreter=python2
 
 [ansible_windows_slaves:children]
 windows
 
+[ansible_linux_slaves:children]
+linux
