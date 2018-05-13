@@ -1,0 +1,21 @@
+---
+- name: Print inventory hostname
+  debug:
+    msg: "{{ lookup('dig', '{{inventory_hostname}}')}}, Inver: {{inventory_hostname}}"
+
+- name: Print user environment
+  debug:
+    msg: "{{ lookup('env','USER')}}"
+
+- name: Accept new ssh fingerprint
+  shell: "ssh-keyscan -t rsa -H {{ inventory_hostname }} 10.0.2.15 >> ~/.ssh/known_hosts"
+  delegate_to: localhost
+
+- name: Test env names
+  shell: "echo $HOME"
+  register: env_names
+
+- name: Make test directory
+  file:
+    path: "{{ env_names.stdout_lines[0] }}/Test"
+    state: directory

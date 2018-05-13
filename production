@@ -4,7 +4,7 @@
 #10.0.0.21
 
 [linux]
-10.0.0.7 #ansible_python_interpreter=python2
+10.0.0.7 configure_linux=False #ansible_python_interpreter=python2
 
 [ansible_windows_slaves:children]
 windows

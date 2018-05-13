@@ -9,8 +9,8 @@
     src: "{{ item }}"
     dest: C:\\microservice\\
   with_items:
-    - /etc/ansible/roles/common/files/microservice.py
-    - /etc/ansible/roles/common/files/counter.dat
+    - /etc/ansible/roles/windows/files/microservice.py
+    - /etc/ansible/roles/windows/files/counter.dat
 
 - name: Run microservice
   win_command: python C:\microservice\microservice.py

@@ -1,0 +1,10 @@
+---
+- name: Log into DockerHub
+  docker_login:
+    username: "{{ docker_username }}"
+    password: "{{ docker_password }}"
+    email: "{{ docker_email }}"
+- name: Pull an image
+  docker_image:
+    name: 5097104/hello-world-v.1.1
+
