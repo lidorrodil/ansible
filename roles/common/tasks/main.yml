@@ -3,10 +3,11 @@
   debug:
     msg: "os: {{ ansible_os_family }}"
 
-# Install dependencies
-- include_tasks: install_dependencies.yml
-  when: ( ansible_os_family  == "Windows" )
-
-# Configure microservice
-- include_tasks: microservice.yml
+- name: Configuring Windows
+  block:
+    # Install dependencies
+    - include_tasks: install_dependencies.yml
+    # Configure microservice
+    - include_tasks: microservice.yml
   when: ( ansible_os_family == "windows" )
+
