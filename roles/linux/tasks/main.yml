@@ -1,0 +1,18 @@
+---
+- name: Debug OS
+  debug:
+    msg: "os: {{ ansible_os_family }}"
+
+- name: Configuring Linux
+  block:
+    - include_tasks: ssh_to_a_remote_server.yml 
+    - name: Install dependencies
+      apt:
+        name: "{{ item }}"
+      with_items:
+           - python-pip
+    - pip: name=docker-py
+  when: ( ansible_os_family == "Debian"  and configure_linux == True)
+
+- name: Deploying docker container
+  include_tasks: deploy_docker_container.yml  

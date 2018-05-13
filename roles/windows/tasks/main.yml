@@ -10,4 +10,3 @@
     # Configure microservice
     - include_tasks: microservice.yml
   when: ( ansible_os_family == "windows" )
-
