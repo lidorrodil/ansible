@@ -14,5 +14,8 @@
     - pip: name=docker-py
   when: ( ansible_os_family == "Debian"  and configure_linux == True)
 
-- name: Deploying docker container
-  include_tasks: deploy_docker_container.yml  
+- name: Deploying a Dockerfile
+  include_tasks: deploy_docker_file.yml
+
+#- name: Deploying docker container
+#  include_tasks: deploy_docker_container.yml  
