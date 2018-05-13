@@ -1,5 +1,5 @@
 ansible_user: lidor.ettinger@gmail.com
-ansible_password: Lidor4ett
+ansible_password: 
 #ansible_user: admin
 #ansible_password: adminadmin
 ansible_connection: winrm
