@@ -17,5 +17,8 @@
 #  include_tasks: deploy_docker_container.yml  
 
 
-- name: Nginx
-  include_tasks: nginx.yml
+#- name: Set Up Password Authentication with Nginx
+#  include_tasks: roles/linux/tasks/nginx_service/default_nginx.yml
+
+#- name: Set Up Nginx Server Blocks With Custom Error Pages
+#  include_tasks: roles/linux/tasks/nginx_service/blocks_nginx.yml

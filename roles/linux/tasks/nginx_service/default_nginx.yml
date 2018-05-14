@@ -1,0 +1,76 @@
+---
+
+#################################
+#				#
+# Configure Nginx in localhost  #
+#				#
+#################################
+
+- apt: update-cache=yes
+  changed_when: 0
+  become: true
+
+- apt: name=nginx state=present
+  become: true
+
+- shell: sh -c "echo -n 'sammy:' >> /etc/nginx/.htpasswd"
+  become: true
+
+- shell: sh -c "openssl passwd -apr1 adminadmin >> /etc/nginx/.htpasswd"
+  become: true
+
+- copy:
+    src: roles/linux/files/nginx/default/default
+    dest: /etc/nginx/sites-enabled/default
+  become: true
+
+- name: Restart nginx service
+  systemd: state=restarted name=nginx
+  become: true
+    
+
+#- ufw: rule='Nginx HTTP' rule=allow
+#  become: true
+
+#- file:
+#    path: /var/www/example.com/html
+#    owner: root
+#    group: root
+#    state: directory
+#    recurse: yes
+#    mode: 0755
+#  become: true
+
+#- copy:
+#    src: roles/linux/files/nginx/service1/index.html
+#    dest: /var/www/example.com/html/index.html
+#    owner: root
+#    group: root
+#    mode: 0755
+#  become: true
+
+#- copy:
+#    src: roles/linux/files/nginx/service1/example.com
+#    dest: /etc/nginx/site-available/
+#    owner: root
+#    group: root
+#    mode: 0755
+#  become: true
+
+#- name: Make site-enable directory
+#  file:
+#    path: /etc/nginx/site-enabled
+#    state: directory
+#  become: true
+
+
+#- file:
+#    src: /etc/nginx/site-available/example.com
+#    dest: /etc/nginx/site-enabled/example.com
+#    state: link
+#    force: yes
+#  become: true
+
+#- name: Restart nginx service
+#  systemd: state=restarted name=nginx
+#  become: true
