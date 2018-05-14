@@ -6,13 +6,19 @@
 - name: Configuring Linux
   block:
     - include_tasks: ssh_to_a_remote_server.yml 
-    - name: Install dependencies
-      apt:
-        name: "{{ item }}"
-      with_items:
-           - python-pip
+    - apt: update-cache=yes
+      changed_when: 0
+    - apt: name=python-pip state=present
     - pip: name=docker-py
+  become: true
   when: ( ansible_os_family == "Debian"  and configure_linux == True)
 
-- name: Deploying docker container
-  include_tasks: deploy_docker_container.yml  
+#- name: Deploying docker container
+#  include_tasks: deploy_docker_container.yml  
+
+
+#- name: Set Up Password Authentication with Nginx
+#  include_tasks: roles/linux/tasks/nginx_service/default_nginx.yml
+
+#- name: Set Up Nginx Server Blocks With Custom Error Pages
+#  include_tasks: roles/linux/tasks/nginx_service/blocks_nginx.yml
