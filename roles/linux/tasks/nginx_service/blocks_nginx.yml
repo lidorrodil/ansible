@@ -1,0 +1,61 @@
+---
+# Step One — Set Up New Document Root Directories
+- file:
+    path: "{{ item }}"
+    owner: root
+    group: root
+    state: directory
+    recurse: yes
+    mode: 0755
+  become: true
+  with_items:
+  - ["/var/www/example.com/html", "/var/www/test.com/html"]
+
+# Step Two — Create Sample Pages for Each Site
+- copy:
+    src: roles/linux/files/nginx/service/test_index.html
+    dest: /var/www/test.com/html/index.html
+  become: true
+
+- copy:
+    src: roles/linux/files/nginx/service/example_index.html 
+    dest: /var/www/example.com/html/index.html 
+  become: true
+
+# Configure Nginx to Use Custom Error Pages
+- copy:
+    src: "{{ item }}"
+    dest: /usr/share/nginx/html
+  become: true
+  with_items:
+  - ["roles/linux/files/nginx/service/custom_404.html", "roles/linux/files/nginx/service/custom_50x.html"]
+
+# Step Three — Create Server Block Files for Each Domain
+- copy:
+    src: roles/linux/files/nginx/service/example.com
+    dest: /etc/nginx/sites-available/example.com
+  become: true
+
+- copy:
+    src: roles/linux/files/nginx/service/test.com        
+    dest: /etc/nginx/sites-available/test.com  
+  become: true
+
+# Step Four — Enable your Server Blocks and Restart Nginx
+- shell: ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
+  become: true
+
+- shell: ln -s /etc/nginx/sites-available/test.com /etc/nginx/sites-enabled/
+  become: true
+
+- shell: rm /etc/nginx/sites-enabled/default
+  become: true
+
+- copy:
+    src: roles/linux/files/nginx/nginx.conf
+    dest: /etc/nginx/nginx.conf
+  become: true
+
+- name: Restart nginx service
+  systemd: state=restarted name=nginx
+  become: true

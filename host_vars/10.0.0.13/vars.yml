@@ -1,0 +1,5 @@
+ansible_ssh_user: linux5
+ansible_ssh_pass: adminadmin
+ansible_connection: ssh
+ansible_sudo_pass: adminadmin
+

@@ -4,7 +4,11 @@
 #10.0.0.21
 
 [linux]
-10.0.0.7 configure_linux=False #ansible_python_interpreter=python2
+#10.0.0.7 configure_linux=False #ansible_python_interpreter=python2
+10.0.0.13 configure_linux=False
+
+[linux:vars]
+gather_facts=False
 
 [ansible_windows_slaves:children]
 windows
