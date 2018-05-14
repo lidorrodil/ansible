@@ -1,0 +1,13 @@
+---
+
+#################################
+#				#
+# Configure Nginx in localhost  #
+#				#
+#################################
+
+- apt: name=nginx state=present
+  become: true
+
+- ufw: rule='Nginx HTTP' rule=allow
+  become: true
