@@ -1,4 +1,8 @@
 ---
+- name: Install python-docker on Debian based distribution
+  apt:
+    name: python-docker
+    update_cache: yes
 - name: Log into DockerHub
   docker_login:
     username: "{{ docker_username }}"
