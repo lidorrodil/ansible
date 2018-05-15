@@ -25,8 +25,8 @@
 
 - name: Copy the Ansible plugin
   copy:
-    src: roles/CWT/files/ansible.jpi
-    dest: /var/lib/jenkins/plugins/ansible.jpi
+    src: roles/CWT/files/jenkins-plugins/
+    dest: /var/lib/jenkins/plugins/
 
 - name: Immediately restart Jenkins on init config changes
   service: name=jenkins state=restarted
