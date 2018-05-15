@@ -1,8 +1,0 @@
-- hosts: jenkins
-  vars:
-    jenkins_hostname: jenkins.example.com
-  roles:
-    - role: ansible-role-jenkins
-#    - role: geerlingguy.java
-#    - role: geerlingguy.jenkins
-      become: true
