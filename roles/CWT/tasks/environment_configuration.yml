@@ -1,0 +1,9 @@
+---
+- name: Configuring docker dependencies
+  block:
+    - apt: update-cache=yes
+      changed_when: 0
+    - apt: name=python-pip state=present
+    - pip: name=docker-py
+    - apt: name=docker.io
+

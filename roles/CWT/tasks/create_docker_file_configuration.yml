@@ -1,0 +1,16 @@
+---
+- name: Create myproject directory
+  file:
+    path: "/home/{{ lookup('env','USER') }}/myproject"
+    state: directory
+
+- name: Deploying a Dockerfile
+  copy:
+    src: roles/CWT/files/Dockerfile
+    dest: "/home/{{ lookup('env','USER') }}/myproject/Dockerfile"
+
+- name: Deploying
+  command: "docker build -t my_nginx /home/{{ lookup('env','USER') }}/myproject/"
+
+- name: Deploying2
+  command: docker run -d -p 82:82 --name webserver my_nginx

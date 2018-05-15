@@ -1,0 +1,30 @@
+- name: Configure CI server
+  hosts: 127.0.0.1
+  connection: local
+  sudo: True
+  roles:
+    - geerlingguy.jenkins
+  tasks:
+    - name: Configure first docker job
+      block:    
+        - file:
+            path: /var/lib/jenkins/jobs/docker_cwt
+            state: directory
+            owner: jenkins
+            group: jenkins
+            mode: 0755
+        - template:
+            src: roles/CWT/template/jenkins_docker_config.xml
+            dest: /var/lib/jenkins/jobs/docker_cwt/config.xml
+            owner: jenkins
+            group: jenkins
+            mode: 0755
+        - template:
+            src: roles/CWT/template/global_tool_jenkins_configuration.xml
+            dest: /var/lib/jenkins/org.jenkinsci.plugins.ansible.AnsibleInstallation.xml
+            owner: jenkins
+            group: jenkins
+            mode: 0755
+        - name: Immediately restart Jenkins on init config changes
+          service: name=jenkins state=restarted
+

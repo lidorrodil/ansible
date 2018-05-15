@@ -1,0 +1,13 @@
+- name: Docker container
+  hosts: 127.0.0.1
+  connection: local
+  become: true
+  vars:
+     - ansible_sudo_pass: adminadmin
+     - ansible_ssh_user: ansible2
+     - ansible_ssh_pass: adminadmin
+     - ansible_connection: ssh
+  tasks:
+    - name: Deploying a Dockerfile
+#      include_tasks: roles/CWT/tasks/environment_configuration.yml
+#      include_tasks: roles/CWT/tasks/create_docker_file_configuration.yml

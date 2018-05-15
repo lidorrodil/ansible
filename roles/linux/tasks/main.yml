@@ -3,18 +3,15 @@
   debug:
     msg: "os: {{ ansible_os_family }}"
 
-- name: Configuring Linux
-  block:
-    - include_tasks: ssh_to_a_remote_server.yml 
-    - apt: update-cache=yes
-      changed_when: 0
-    - apt: name=python-pip state=present
-    - pip: name=docker-py
-  become: true
-  when: ( ansible_os_family == "Debian"  and configure_linux == True)
-
-#- name: Deploying a Dockerfile
-#  include_tasks: deploy_docker_file.yml
+#- name: Configuring Linux
+#  block:
+#    - include_tasks: ssh_to_a_remote_server.yml 
+#    - apt: update-cache=yes
+#      changed_when: 0
+#    - apt: name=python-pip state=present
+#    - pip: name=docker-py
+#  become: true
+#  when: ( ansible_os_family == "Debian"  and configure_linux == True)
 
 #- name: Deploying docker container
 #  include_tasks: deploy_docker_container.yml  
