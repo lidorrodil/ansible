@@ -1,0 +1,4 @@
+ansible_sudo_pass: adminadmin
+ansible_ssh_user: ansible2
+ansible_ssh_pass: adminadmin
+ansible_connection: ssh
