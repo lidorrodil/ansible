@@ -9,5 +9,5 @@
      - ansible_connection: ssh
   tasks:
     - name: Deploying a Dockerfile
-#      include_tasks: roles/CWT/tasks/environment_configuration.yml
-#      include_tasks: roles/CWT/tasks/create_docker_file_configuration.yml
+      include_tasks: roles/CWT/tasks/environment_configuration.yml
+      include_tasks: roles/CWT/tasks/create_docker_file_configuration.yml
