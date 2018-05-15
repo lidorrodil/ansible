@@ -1,5 +1,5 @@
 - name: Configure CI server
-  hosts: 127.0.0.1
+  hosts: localhost
   connection: local
   sudo: True
   roles:
