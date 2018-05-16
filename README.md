@@ -1,5 +1,5 @@
 ### Two playbooks are playing a role here:
-###  1. ci-server.yml -> Which installs Jenkins including extra plugins for our job
+###  1. ci-server.yml -> Which installs Jenkins including extra plugins for our job and the job itself
 ### 2. docker_container.yml -> Which build the container and run it.
 
 **The first playbook the user will execute from the command-line.
