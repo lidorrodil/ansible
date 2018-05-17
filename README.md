@@ -1,3 +1,15 @@
+### Two playbooks are playing a role here:
+###  1. ci-server.yml -> Which installs Jenkins including extra plugins for our job and the job itself
+### 2. docker_container.yml -> Which build the container and run it.
+
+**The first playbook the user will execute from the command-line.
+The second playbook the Jenkins will execute it as part of the purpose of the job.**
+
+
+------------
+
+
+
 **First install Ansible version 2.5.2:**
 
 - $ sudo apt-get update
@@ -12,8 +24,6 @@
 
 ------------
 
-
-
 **Then install git:**
 
 $ sudo apt-get update
@@ -23,6 +33,12 @@ $ sudo apt-get install git
 
 ------------
 
+**Installation of the OpenSSH  server application:**
+
+$ sudo apt install openssh-server
+
+
+------------
 
 
 **Create a file:**
