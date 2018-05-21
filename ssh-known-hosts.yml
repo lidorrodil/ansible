@@ -25,6 +25,15 @@
     with_items: "{{ ssh_known_host_results.results }}"
     become: true
 
+  - name: Create a directory /var/lib/jenkins/.ssh
+    file:
+      path: /var/lib/jenkins/.ssh
+      state: directory
+      owner: jenkins
+      group: jenkins
+      recurse: yes
+    become: true
+
   - name: Add/update the public key in the /var/lib/jenkins/.ssh/known_hosts
     known_hosts:
       name: "{{ item.item }}"
