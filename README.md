@@ -42,8 +42,8 @@ $ sudo apt install openssh-server
 
 
 **Create a file:**
-~~/home/${USER}/.vault_pass.txt~~
-~~with the password: adminadmin~~
+/home/${USER}/.vault_pass.txt
+with the password: adminadmin
 
 
 ------------
