@@ -7,6 +7,10 @@
 #10.0.0.7 configure_linux=False #ansible_python_interpreter=python2
 #10.0.0.13 configure_linux=False
 
+[localhost]
+127.0.0.1
+
+
 [linux:vars]
 gather_facts=False
 
