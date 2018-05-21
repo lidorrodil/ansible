@@ -42,8 +42,8 @@ $ sudo apt install openssh-server
 
 
 **Create a file:**
-/home/${USER}/.vault_pass.txt
-with the password: adminadmin
+~~/home/${USER}/.vault_pass.txt~~
+~~with the password: adminadmin~~
 
 
 ------------
@@ -57,8 +57,9 @@ https://github.com/lidorrodil/ansible.git
 
 **Checkout the branch:** jenkins-docker-implementation
 
-**Execute:** ansible-playbook ci-server.yml -i production -vv
+**Build Jenkins:** ansible-playbook ci-server.yml -i production -vv
 
+**Add the host's fingerprint to the Jenkins known_hosts:** ansible-playbook ssh-known-hosts.yml -i production -vv
 
 ------------
 
