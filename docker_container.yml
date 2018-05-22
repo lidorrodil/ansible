@@ -2,6 +2,5 @@
   hosts: localhost
   connection: local
   become: True
-  tasks:
-    - include_tasks: roles/CWT/tasks/environment_configuration.yml
-    - include_tasks: roles/CWT/tasks/create_docker_file_configuration.yml
+  roles:
+    - CWT

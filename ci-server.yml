@@ -4,5 +4,4 @@
   sudo: True
   roles:
     - geerlingguy.jenkins
-  tasks:
-    - include_tasks: roles/geerlingguy.jenkins/tasks/cwt_configuration.yml
+    - jenkins-jobs

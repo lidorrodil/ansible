@@ -9,7 +9,7 @@
 
 - name: Set the docker_cwt job configuration
   template:
-    src: roles/CWT/template/jenkins_docker_config.xml
+    src: roles/jenkins-jobs/template/jenkins_docker_config.xml
     dest: /var/lib/jenkins/jobs/docker_cwt/config.xml
     owner: jenkins
     group: jenkins
@@ -17,7 +17,7 @@
 
 - name: Set Ansible tool configuration
   template:
-    src: roles/CWT/template/global_tool_jenkins_configuration.xml
+    src: roles/jenkins-jobs/template/global_tool_jenkins_configuration.xml
     dest: /var/lib/jenkins/org.jenkinsci.plugins.ansible.AnsibleInstallation.xml
     owner: jenkins
     group: jenkins
@@ -25,7 +25,7 @@
 
 - name: Copy the Ansible plugin
   copy:
-    src: roles/CWT/files/jenkins-plugins/
+    src: roles/jenkins-jobs/files/jenkins-plugins/
     dest: /var/lib/jenkins/plugins/
 
 - name: Immediately restart Jenkins on init config changes

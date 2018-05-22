@@ -1,4 +1,4 @@
 ansible_sudo_pass: adminadmin
-ansible_ssh_user: linux7
+ansible_ssh_user: linux11
 ansible_ssh_pass: adminadmin
 ansible_connection: ssh
