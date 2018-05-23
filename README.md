@@ -1,7 +1,6 @@
-## Done:
+#### Done:
 
 ------------
-
 
 - Docker container: https://docs.docker.com/docker-hub/repos/
 - Dockerfile  - NGINX as a Reverse Proxy
