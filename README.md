@@ -1,10 +1,9 @@
-# ansible
+## Done:
 
-Pre-tasks:
-    - How to Install and Configure Ansible on an Ubuntu
-    - Connection from Ansible Server to Windows
+------------
 
-Tasks:
-    - Docker container: https://docs.docker.com/docker-hub/repos/
-    - Dockerfile creation
-    - NGINX Reverse Proxy
+
+- Docker container: https://docs.docker.com/docker-hub/repos/
+- Dockerfile  - NGINX as a Reverse Proxy
+- Setting up a Windows Host and Linux Host
+- CI\CD - Install Jenkins in order to have a job that creates a Nginx container
