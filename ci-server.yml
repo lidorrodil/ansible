@@ -1,0 +1,7 @@
+- name: Configure CI server
+  hosts: localhost
+  connection: local
+  sudo: True
+  roles:
+    - geerlingguy.jenkins
+    - jenkins-jobs

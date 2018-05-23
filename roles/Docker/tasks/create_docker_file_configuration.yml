@@ -1,0 +1,17 @@
+---
+- name: Create myproject directory
+  file:
+    path: "/home/{{ lookup('env','USER') }}/myproject"
+    state: directory
+
+- name: Copy a Dockerfile
+  copy:
+    src: roles/Docker/files/Dockerfile
+    dest: "/home/{{ lookup('env','USER') }}/myproject/Dockerfile"
+
+- name: Build the Dockerfile
+  command: docker build -t my_nginx /home/{{ lookup('env','USER') }}/myproject/
+
+- name: Run the Docker image
+  command: docker run -d -p 80:80 --name {{container_name}} my_nginx
+  become: true

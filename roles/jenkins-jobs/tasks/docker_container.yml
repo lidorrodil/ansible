@@ -1,0 +1,33 @@
+---
+- name: Create docker_cwt directory
+  file:
+    path: /var/lib/jenkins/jobs/docker_cwt
+    state: directory
+    owner: jenkins
+    group: jenkins
+    mode: 0755
+
+- name: Set the docker_cwt job configuration
+  template:
+    src: roles/jenkins-jobs/template/jenkins_docker_config.xml
+    dest: /var/lib/jenkins/jobs/docker_cwt/config.xml
+    owner: jenkins
+    group: jenkins
+    mode: 0755
+
+- name: Set Ansible tool configuration
+  template:
+    src: roles/jenkins-jobs/template/global_tool_jenkins_configuration.xml
+    dest: /var/lib/jenkins/org.jenkinsci.plugins.ansible.AnsibleInstallation.xml
+    owner: jenkins
+    group: jenkins
+    mode: 0755
+
+- name: Copy the Ansible plugin
+  copy:
+    src: roles/jenkins-jobs/files/jenkins-plugins/
+    dest: /var/lib/jenkins/plugins/
+
+- name: Immediately restart Jenkins on init config changes
+  service: name=jenkins state=restarted
+

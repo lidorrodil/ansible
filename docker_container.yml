@@ -1,0 +1,6 @@
+- name: Docker container
+  hosts: localhost
+  connection: local
+  become: True
+  roles:
+    - Docker

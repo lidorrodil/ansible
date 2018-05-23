@@ -1,0 +1,4 @@
+---
+# Include Jenkins job
+
+- include_tasks: roles/jenkins-jobs/tasks/docker_container.yml
