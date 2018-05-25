@@ -1,0 +1,6 @@
+---
+# Read the instance file
+# if there is an instance then check the cpu
+# if the cpu is >X then create a new instance
+# clean the file and copy the new instance id
+# run this playbook within the cron
