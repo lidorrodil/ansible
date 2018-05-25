@@ -1,0 +1,20 @@
+- name: Create EC2 instances
+  ec2:
+   key_name: "{{ ec2_keypair }}"
+   instance_type: "{{ ec2_instance_type }}"
+   image: "{{ ec2_image }}"
+   region: "{{ ec2_region }}"
+#   group_id:
+#         - "{{ webservers_group.group_id }}"
+#         - "{{ elb.elb.security_group_ids | first }}"
+#         - sg-2047424d
+   group: "{{ ec2_security_group }}"
+
+   wait: yes
+   instance_tags:
+     application: webservercontrol
+   exact_count: 1
+   count_tag:
+     application: webservercontrol
+  register: ec2_instances
+

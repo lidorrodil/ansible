@@ -1,0 +1,5 @@
+ec2_region: "eu-central-1"
+ec2_security_group: "webservers4"
+ec2_keypair: "slot3"
+ec2_instance_type: "t2.micro"
+ec2_image: "ami-9a91b371"

@@ -7,6 +7,11 @@
 #10.0.0.7 configure_linux=False #ansible_python_interpreter=python2
 #10.0.0.13 configure_linux=False
 
+[aws]
+#18.184.49.229
+18.184.11.190
+#52.28.55.217
+
 [localhost]
 127.0.0.1
 

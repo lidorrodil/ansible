@@ -1,0 +1,17 @@
+- name: Create the ELB only listening over port 80
+  local_action:
+    module: ec2_elb_lb
+    name: webservercontrol-load-balancer
+    state: present
+    region: "{{ ec2_region }}"
+    zones:
+     - eu-central-1a
+     - eu-central-1b
+     - eu-central-1c
+    security_group_names: "{{ ec2_security_group }}"
+    listeners:
+     - protocol: http
+       load_balancer_port: 80
+       instance_port: 80
+  register: elb
+
