@@ -12,4 +12,5 @@
 **Tasks:**
 - Execute: ansible-playbook -i production provision-ec2.yml
 - 	The playbook that is metioned below should be defined in the crontab.
-- *ansible/roles/provision-ec2/tasks/check_cpu_instance.yml* 
+
+*ansible/roles/provision-ec2/tasks/check_cpu_instance.yml* 
