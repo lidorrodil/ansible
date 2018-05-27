@@ -29,6 +29,6 @@
       register: cpu_capacity
 
     - name: Create new instance
-      include_tasks: roles/provision-ec2/tasks/create_ec2_instance.yml
+      include_tasks: /home/{{ lookup('env','USER') }}/ansible/roles/provision-ec2/tasks/create_ec2_instance.yml
       when: "{{ cpu_capacity.stdout}} >= 0.0"
   when: instance_status.instances|selectattr("state","defined")|list|length >0
