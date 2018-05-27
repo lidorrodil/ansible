@@ -6,24 +6,21 @@
    region: "{{ ec2_region }}"
    group: "{{ ec2_security_group }}"
    wait: yes
-   instance_tags:
-     application: webservercontrol2
-   exact_count: 1
-   count_tag:
-     application: webservercontrol2
   register: ec2_instances
 
-- name: Print ec2_instances
-  debug:
-    msg: "{{ ec2_instances.instance_ids[0] }}"
+- stat:
+    path: "{{ instance_id_file }}"
+  register: p
 
-- name: Create file
+- name: Create a new instance id file
   file:
-    dest: "/home/{{ lookup('env','USER') }}/instance.txt"
-    state: touch
+    path: "{{ instance_id_file }}"
     mode: 0777
+    state: '{{ "absent" if p.stat.exists else "touch" }}'
   delegate_to: localhost
 
 - name: Write to a file
-  shell: echo "{{ ec2_instances.instance_ids[0] }}" >> "/home/{{ lookup('env','USER') }}/instance.txt"
+  shell: echo "{{ ec2_instances.instance_ids[0] }}" >> "{{ instance_id_file }}"
   delegate_to: localhost
+
+

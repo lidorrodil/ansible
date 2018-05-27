@@ -1,7 +1,13 @@
 ---
 
+# First create the security group
 - include_tasks: create_security_group.yml
 
+# Second create the Elastic Load Balancing
 - include_tasks: create_elb.yml
 
+# Third create an EC2 instance
 - include_tasks: create_ec2_instance.yml
+
+# Fourth check the CPU if it is bigger than > $X then create a new EC2 instance
+- include_tasks: check_cpu_instance.yml

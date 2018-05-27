@@ -1,6 +1,34 @@
 ---
 # Read the instance file
-# if there is an instance then check the cpu
-# if the cpu is >X then create a new instance
-# clean the file and copy the new instance id
+# Get the status of the instance id
+# If the instance is ready then get the CPU and if it is bigger than > %X
+# Then create a new instance
 # run this playbook within the cron
+
+- name: Display last instance id
+  shell: "cat {{ instance_id_file }}"
+  delegate_to: localhost
+  register: instance_id
+
+- name: Get status of instance "{{ instance_id.stdout}}"
+  ec2_remote_facts:
+    filters:
+      instance-id: "{{ instance_id.stdout}}"
+    region: "{{ ec2_region }}"
+  register: instance_status
+
+- name: If the instance is ready then continue
+  block:
+    - name: Check CPU for instance 
+      command: "python ./check_cpu_with_credentials2.py -i {{ instance_id.stdout}}"
+      args:
+        chdir: "/home/{{ lookup('env','USER') }}/ansible/roles/provision-ec2/files/"
+      delegate_to: localhost
+      become: true
+      run_once: true
+      register: cpu_capacity
+
+    - name: Create new instance
+      include_tasks: roles/provision-ec2/tasks/create_ec2_instance.yml
+      when: "{{ cpu_capacity.stdout}} >= 0.0"
+  when: instance_status.instances|selectattr("state","defined")|list|length >0
