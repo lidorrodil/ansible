@@ -1,5 +1,5 @@
 ### Pre-tasks:
-** Creating IAM Users (Console)**
+**Creating IAM Users (Console)**
 - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console
 
 - 	 Creating keypair
