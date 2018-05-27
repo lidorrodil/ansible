@@ -10,4 +10,4 @@
 - include_tasks: create_ec2_instance.yml
 
 # Fourth check the CPU if it is bigger than > $X then create a new EC2 instance
-- include_tasks: check_cpu_instance.yml
+#- include_tasks: check_cpu_instance.yml
