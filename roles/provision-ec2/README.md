@@ -1,5 +1,5 @@
 ### Pre-tasks:
-**	 Creating IAM Users (Console)**
+** Creating IAM Users (Console)**
 - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console
 
 - 	 Creating keypair
@@ -10,6 +10,6 @@
 		ansible_ssh_private_key_file: keypair_file.PEM
 
 **Tasks:**
-	- Execute: ansible-playbook -i production provision-ec2.yml
-	- The playbook that is metioned below should be defined in the crontab.
+- Execute: ansible-playbook -i production provision-ec2.yml
+- 	The playbook that is metioned below should be defined in the crontab. 
 		ansible/roles/provision-ec2/tasks/check_cpu_instance.yml 
