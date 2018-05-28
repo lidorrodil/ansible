@@ -17,4 +17,4 @@
 
 
 
-[![ELB & Security Group](http://aws.typepad.com/.a/6a00d8341c534853ef01a5119a8c70970c-pi "ELB & Security Group")](http://aws.typepad.com/.a/6a00d8341c534853ef01a5119a8c70970c-pi "ELB & Security Group")
+[![ELB](http://aws.typepad.com/.a/6a00d8341c534853ef01a5119a8c70970c-pi "ELB")](http://aws.typepad.com/.a/6a00d8341c534853ef01a5119a8c70970c-pi "ELB")
