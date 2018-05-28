@@ -14,3 +14,7 @@
 - 	The playbook that is metioned below should be defined in the crontab.
 
 *ansible/roles/provision-ec2/tasks/check_cpu_instance.yml* 
+
+
+
+[![asdad](https://files.fm/thumb_show.php?i=cqw6he3j&view "ELB & Security Group")](https://files.fm/thumb_show.php?i=cqw6he3j&view "ELB & Security Group")
