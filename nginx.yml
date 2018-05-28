@@ -2,5 +2,5 @@
 - hosts: nginx
 #  gather_facts: False
   roles:
-    - Nginx
+    - nginx
 
