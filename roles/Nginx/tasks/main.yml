@@ -18,8 +18,8 @@
 
 
 #- name: Set Up Password Authentication with Nginx
-#  include_tasks: roles/linux/tasks/nginx_service/default_nginx.yml
+#  include_tasks: roles/Nginx/tasks/nginx_service/default_nginx.yml
 
 #- name: Set Up Nginx Server Blocks With Custom Error Pages
-#  include_tasks: roles/linux/tasks/nginx_service/blocks_nginx.yml
+#  include_tasks: roles/Nginx/tasks/nginx_service/blocks_nginx.yml
 

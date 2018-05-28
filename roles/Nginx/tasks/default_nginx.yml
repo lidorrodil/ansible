@@ -20,7 +20,7 @@
   become: true
 
 - copy:
-    src: roles/linux/files/nginx/default/default
+    src: roles/Nginx/files/configurations/default/default
     dest: /etc/nginx/sites-enabled/default
   become: true
 
@@ -42,7 +42,7 @@
 #  become: true
 
 #- copy:
-#    src: roles/linux/files/nginx/service1/index.html
+#    src: roles/Nginx/files/configurations/service1/index.html
 #    dest: /var/www/example.com/html/index.html
 #    owner: root
 #    group: root
@@ -50,7 +50,7 @@
 #  become: true
 
 #- copy:
-#    src: roles/linux/files/nginx/service1/example.com
+#    src: roles/Nginx/files/configurations/service1/example.com
 #    dest: /etc/nginx/site-available/
 #    owner: root
 #    group: root

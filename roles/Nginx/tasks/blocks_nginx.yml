@@ -13,12 +13,12 @@
 
 # Step Two — Create Sample Pages for Each Site
 - copy:
-    src: roles/linux/files/nginx/service/test_index.html
+    src: roles/Nginx/files/configurations/service/test_index.html
     dest: /var/www/test.com/html/index.html
   become: true
 
 - copy:
-    src: roles/linux/files/nginx/service/example_index.html 
+    src: roles/Nginx/files/configurations/service/example_index.html 
     dest: /var/www/example.com/html/index.html 
   become: true
 
@@ -28,16 +28,16 @@
     dest: /usr/share/nginx/html
   become: true
   with_items:
-  - ["roles/linux/files/nginx/service/custom_404.html", "roles/linux/files/nginx/service/custom_50x.html"]
+  - ["roles/Nginx/files/configurations/service/custom_404.html", "roles/Nginx/files/configurations/service/custom_50x.html"]
 
 # Step Three — Create Server Block Files for Each Domain
 - copy:
-    src: roles/linux/files/nginx/service/example.com
+    src: roles/Nginx/files/configurations/service/example.com
     dest: /etc/nginx/sites-available/example.com
   become: true
 
 - copy:
-    src: roles/linux/files/nginx/service/test.com        
+    src: roles/Nginx/files/configurations/service/test.com        
     dest: /etc/nginx/sites-available/test.com  
   become: true
 
@@ -52,7 +52,7 @@
   become: true
 
 - copy:
-    src: roles/linux/files/nginx/nginx.conf
+    src: roles/Nginx/files/nginx/nginx.conf
     dest: /etc/nginx/nginx.conf
   become: true
 
