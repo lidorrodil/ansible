@@ -4,10 +4,10 @@
 
 - 	 Creating keypair
 -  Creating group_vars/localhost/vars.yml
-		AWS_ACCESS_KEY_ID:
-		AWS_SECRET_ACCESS_KEY:
-		ansible_ssh_user:
-		ansible_ssh_private_key_file: keypair_file.PEM
+	1. AWS_ACCESS_KEY_ID:
+	2. AWS_SECRET_ACCESS_KEY:
+	3. ansible_ssh_user:
+	4. ansible_ssh_private_key_file: keypair_file.PEM
 
 **Tasks:**
 - Execute: ansible-playbook -i production provision-ec2.yml
