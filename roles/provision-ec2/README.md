@@ -17,4 +17,4 @@
 
 
 
-[![ELB & Security Group](https://files.fm/thumb_show.php?i=vn2mdtxk&view "ELB & Security Group")](https://files.fm/thumb_show.php?i=vn2mdtxk&view "ELB & Security Group")
+[![ELB & Security Group](http://aws.typepad.com/.a/6a00d8341c534853ef01a5119a8c70970c-pi "ELB & Security Group")](http://aws.typepad.com/.a/6a00d8341c534853ef01a5119a8c70970c-pi "ELB & Security Group")
